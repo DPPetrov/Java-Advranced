@@ -15,7 +15,7 @@ public class PrinterQueue {
 
                 fileName = command;
                 files.offer(fileName);
-                System.out.println(fileName);
+
 
             } else {
                 if (!files.isEmpty()) {
@@ -29,6 +29,10 @@ public class PrinterQueue {
             }
 
             command = sc.nextLine();
+        }
+
+        for (String el : files){
+            System.out.println(el);
         }
     }
 }
