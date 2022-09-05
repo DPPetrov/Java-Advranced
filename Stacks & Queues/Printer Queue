@@ -1,0 +1,34 @@
+import java.util.ArrayDeque;
+import java.util.Scanner;
+
+public class PrinterQueue {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String command = sc.nextLine();
+        String fileName = null;
+
+        ArrayDeque<String> files = new ArrayDeque<>();
+
+        while (!command.equals("print")) {
+
+            if (!command.equals("cancel")) {
+
+                fileName = command;
+                files.offer(fileName);
+                System.out.println(fileName);
+
+            } else {
+                if (!files.isEmpty()) {
+                    files.poll();
+                    System.out.println("Canceled " + fileName);
+                } else {
+                    System.out.println("Printer is on standby");
+                }
+
+
+            }
+
+            command = sc.nextLine();
+        }
+    }
+}
