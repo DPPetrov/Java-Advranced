@@ -16,16 +16,9 @@ public class ReverseNumbersInStack {
             stack.push(el);
         }
 
-        System.out.println(stack);
-
-        while (stack.size() > 0){
-
-            if (stack.size() == 1){
-                break;
-            }
-            stack.pop();
+        for (int el : stack){
+            System.out.print(el + " ");
         }
 
-        System.out.println(stack);
     }
 }
