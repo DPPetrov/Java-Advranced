@@ -1,0 +1,27 @@
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class StackBasicOperations {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int[] input = Arrays.stream(sc.nextLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
+        int[] value = Arrays.stream(sc.nextLine().split("\\s+")).mapToInt(Integer::parseInt).toArray();
+
+        int n = input[0]; // number of elements to push into the stack
+        int s = input[1]; // number of elements to pop from the stack
+        int x = input[2]; // that you should check whether is present in the stack
+
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
+
+
+        for (int i = 0; i < n; i++) {
+            for (int el : value){
+                stack.push(el);
+            }
+        }
+
+        System.out.println(stack);
+    }
+}
