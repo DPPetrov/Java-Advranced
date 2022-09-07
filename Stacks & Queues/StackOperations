@@ -15,13 +15,46 @@ public class StackBasicOperations {
 
         ArrayDeque<Integer> stack = new ArrayDeque<>();
 
+        while (n >= value.length) {
 
-        for (int i = 0; i < n; i++) {
-            for (int el : value){
+            for (int el : value) {
                 stack.push(el);
+                n--;
             }
+
         }
 
-        System.out.println(stack);
+        while (s > 0) {
+
+            stack.pop();
+            s--;
+
+        }
+
+        int smallestNum = 0;
+
+        if (stack.contains(x)) {
+            System.out.println("true");
+        } else if (stack.isEmpty()) {
+            System.out.println(0);
+        } else  {
+            for (int el : stack) {
+
+                smallestNum = stack.getLast();
+
+                if (smallestNum > el) {
+                    smallestNum = el;
+                    stack.remove(stack.getLast());
+
+                        if(stack.size() == 1){
+                            break;
+                        }
+                }
+            }
+
+            System.out.println(smallestNum);
+        }
+
+
     }
 }
