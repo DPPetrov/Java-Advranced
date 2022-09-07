@@ -1,0 +1,31 @@
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ReverseNumbersInStack {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int[] input = Arrays.stream(sc.nextLine().split(" ")).
+                mapToInt(Integer::parseInt).
+                toArray();
+
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
+
+        for (int el : input) {
+            stack.push(el);
+        }
+
+        System.out.println(stack);
+
+        while (stack.size() > 0){
+
+            if (stack.size() == 1){
+                break;
+            }
+            stack.pop();
+        }
+
+        System.out.println(stack);
+    }
+}
