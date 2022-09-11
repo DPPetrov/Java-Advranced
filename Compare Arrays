@@ -10,11 +10,25 @@ public class CompareArrays {
         int[][] secondMatrix = readMatrix(sc);
 
 
-         boolean areEqual = Arrays.deepEquals(firstMatrix, secondMatrix);
-
-        System.out.println(areEqual);
+        boolean areEqual = compare(firstMatrix, secondMatrix);
 
     }
+
+    private static boolean compare(int[][] firstMatrix, int[][] secondMatrix) {
+
+        boolean areEqual = Arrays.deepEquals(firstMatrix ,secondMatrix);
+
+        if (areEqual == true){
+            System.out.println("equal");
+        }else{
+            System.out.println("not equal");
+        }
+
+        return areEqual;
+    }
+
+
+
 
 
 
