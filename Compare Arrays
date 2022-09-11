@@ -3,36 +3,46 @@ import java.util.Scanner;
 
 public class CompareArrays {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
+
+        int[][] firstMatrix = readMatrix(sc);
+        int[][] secondMatrix = readMatrix(sc);
+
+
+         boolean areEqual = Arrays.deepEquals(firstMatrix, secondMatrix);
+
+        System.out.println(areEqual);
+
+    }
+
+
+
+    private static int[][] readMatrix(Scanner sc) {
 
         int[] input = Arrays.stream(sc.nextLine().split("\\s+"))
                 .mapToInt(Integer::parseInt)
                 .toArray();
 
+        // input
 
-       int rows = input[0];
-       int cols = input[1];
+        int rows = input[0]; //num of arrays
+        int cols = input[1]; //num of elements in each array
 
-       int[][]matrix = new int[rows][cols];
+        int[][] matrix1 = new int[rows][]; //matrix that will be filled with the below loop
 
         for (int row = 0; row < rows; row++) {
+            int[] arr = Arrays.stream(sc.nextLine().split("\\s+")).
+                    mapToInt(Integer::parseInt).
+                    toArray();
 
-            int[] array1 = Arrays.stream(sc.nextLine().split("\\s+"))
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
+            matrix1[row] = arr; //fill the array with the elements on the row - index
 
-            matrix[row] = array1;
 
-            for (int col = 0; col < matrix.length; col++) {
-
-                int[] array2 = Arrays.stream(sc.nextLine().split("\\s+"))
-                        .mapToInt(Integer::parseInt)
-                        .toArray();
-
-                matrix[col] = array2;
-            }
         }
 
-        System.out.println();
+        return matrix1;
     }
+
+
 }
