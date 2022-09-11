@@ -1,28 +1,42 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class IntersectionOfMatrices {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-       int numOfArrays = Integer.parseInt(sc.nextLine());
-       int numOfElements = Integer.parseInt(sc.nextLine());
+        int numOfArrays = Integer.parseInt(sc.nextLine());
+        int numOfElements = Integer.parseInt(sc.nextLine());
 
-       char[][] matrix = new char[numOfArrays][numOfElements];
+        char[][] firstArr = new char[numOfArrays][numOfElements];
+        char[][] secondArr = new char[numOfArrays][numOfElements];
+        char[][] output = new char[numOfArrays][numOfElements];
+
         for (int row = 0; row < numOfArrays; row++) {
+            firstArr[row] = sc.nextLine().replaceAll("\\s+", "") // fill the first arr
+                    .toCharArray();
 
-            String[] charArr = sc.nextLine().split("\\s+");
-            char[] arr = new char[]{};
-            for(String el : charArr){
-                arr = el.toCharArray();
-                matrix[row] = arr;
+        }
+
+        for (int rows = 0; rows < numOfArrays; rows++) {
+            secondArr[rows] = sc.nextLine().replaceAll("\\s+", "") // fill the second arr
+                    .toCharArray();
+        }
+
+        for (int row = 0; row < numOfArrays; row++) {
+            for (int col = 0; col < numOfElements; col++) {
+                char firstEl = firstArr[row][col];
+                char secondEl = secondArr[row][col];
+                char replace = firstEl == secondEl ? firstEl : '*';
+                output[row][col] = replace;
             }
         }
 
-        for (char[] el : matrix){
-            for (char el1 : el){
-                System.out.println(el1 + " ");
+        for (char[] chars : output) {
+            for (char aChar : chars) {
+                System.out.print(aChar + " ");
             }
+            System.out.println();
+            
         }
     }
 }
