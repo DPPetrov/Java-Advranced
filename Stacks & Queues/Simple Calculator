@@ -5,19 +5,20 @@ public class SimpleCalculator {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        String input = sc.nextLine();
+        String[] input = sc.nextLine().split("\\s+");
+
 
         ArrayDeque<String> result = new ArrayDeque<>();
 
-        int num;
-        int nextNum;
-        int sum;
-        int diff ;
+        int num, nextNum, sum, diff;
         int charCount = 0;
 
-        for (int i = 0; i < input.length(); i++) {
+        for (int i = 0; i < input.length; i++) {
 
-            char symbol = input.charAt(i);
+            String toConvert = input[i];
+
+            char[] symbol1 = toConvert.toCharArray();
+            char symbol = symbol1[0];
 
             if (Character.isDigit(symbol) || symbol == '+' || symbol == '-'){
                 String toAdd = Character.toString(symbol);
@@ -37,8 +38,8 @@ public class SimpleCalculator {
 
 
                     }else if (result.contains("-")){
-                        num = Integer.parseInt(result.getFirst());
-                        nextNum = Integer.parseInt(result.getLast());
+                        num = Integer.parseInt(result.getLast());
+                        nextNum = Integer.parseInt(result.getFirst());
                         diff = num - nextNum;
                         result.clear();
                         String addDiff = String.valueOf(diff);
