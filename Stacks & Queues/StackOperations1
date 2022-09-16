@@ -1,0 +1,56 @@
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Test {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int[] input = Arrays.stream(sc.nextLine().split("\\s+"))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+
+        int n = input[0];
+        int s = input[1];
+        int x = input[2];
+
+        int[] elements = Arrays.stream(sc.nextLine().split("\\s+"))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
+
+        while (n > 0) {
+
+            for (int element : elements) {
+                stack.push(element);
+                n--;
+            }
+
+            if (stack.isEmpty()){
+                System.out.println(0);
+                break;
+            }
+
+        }
+
+        while (s > 0) {
+
+            stack.pop();
+            s--;
+        }
+
+        if (stack.contains(x)){
+            System.out.println("true");
+        }else if(stack.isEmpty()){
+            System.out.println(0);
+        }
+        else{
+            System.out.println(Collections.min(stack));
+        }
+
+
+    }
+}
