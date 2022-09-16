@@ -8,7 +8,7 @@ public class MaximumElement {
 
         int commands = Integer.parseInt(sc.nextLine());
 
-        ArrayDeque<String> stack = new ArrayDeque<>();
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
 
         while (commands > 0){
 
@@ -18,7 +18,7 @@ public class MaximumElement {
 
             switch (inputType){
                 case "1":
-                    String el = input[1];
+                    int el = Integer.parseInt(input[1]);
                     stack.push(el);
                     break;
                 case "2":
