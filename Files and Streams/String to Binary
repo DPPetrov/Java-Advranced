@@ -17,7 +17,7 @@ public class ToBinaryString {
            while (bytes >= 0){
                System.out.print(Integer.toBinaryString(bytes) + " ");
                bytes = fileInputStream.read();
-               System.out.println();
+              
            }
         } catch (IOException e) {
             throw new RuntimeException(e);
