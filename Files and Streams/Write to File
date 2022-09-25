@@ -1,0 +1,33 @@
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Set;
+
+public class WriteFile {
+    public static void main(String[] args) throws IOException {
+
+        String path = "Resources\\input.txt";
+
+        FileInputStream fileInputStream = new FileInputStream(path);
+
+        FileOutputStream fileOutputStream = new FileOutputStream("output.txt");
+
+        int bytes = fileInputStream.read();
+
+        Set<Character> punctuationTable = Set.of(',', '?', '!', '.');
+
+
+        while (bytes >= 0) { // iterating through the file contents while there is data
+
+            char symbol = (char) bytes;
+
+            boolean hasPunctuation = punctuationTable.contains(symbol);
+
+            if (!hasPunctuation){
+                fileOutputStream.write(symbol);
+                System.out.print(symbol);
+            }
+            bytes = fileInputStream.read();
+        }
+    }
+}
