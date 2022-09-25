@@ -1,0 +1,50 @@
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class ReadFile {
+    public static void main(String[] args) {
+
+        /*
+        The idea is to read an entire file as automated input.
+        To do this, I read a file on my local machine using FileInputStream
+         */
+        String path = "C:\\Program Files\\Java\\Files and Streams\\" +
+                "04. Java-Advanced-Streams-Files-and-Directories-Resources\\" +
+                "04. Java-Advanced-Files-and-Streams-Lab-Resources\\input.txt";
+        // file path stored on local drive
+
+        try {
+
+            FileInputStream fileInputStream = new FileInputStream(path);
+                //reading the designated file's location
+            int bytes = fileInputStream.read();
+            // convert the content of the .txt file into bytes
+
+            while (bytes >= 0) {
+                //since the ASCII table only holds positive integers
+                System.out.print((char) bytes); // convert the numerals into chars
+
+                bytes = fileInputStream.read(); // read the next line of input
+                /*
+                since the white spaces have numeric values of their own,
+                they will be converted into symbols - in this case either "space"
+                or "new line"
+                 */
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+//       this is just for testing purposes,
+//       as the actual convention is try -> catch -> finally
+//       finally {
+//
+//            System.out.println();
+//            System.out.println("I am ALPHA!");
+//        }
+
+
+    }
+}
