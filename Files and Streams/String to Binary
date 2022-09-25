@@ -1,0 +1,26 @@
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class ToBinaryString {
+    public static void main(String[] args) {
+        /*
+        Reading a file and converting it to binary code
+         */
+        String path = "C:\\Program Files\\Java\\Files and Streams\\" +
+                "04. Java-Advanced-Streams-Files-and-Directories-Resources\\" +
+                "04. Java-Advanced-Files-and-Streams-Lab-Resources\\input.txt";
+
+        try {
+            FileInputStream fileInputStream = new FileInputStream(path);
+            int bytes = fileInputStream.read();
+
+           while (bytes >= 0){
+               System.out.print(Integer.toBinaryString(bytes) + " ");
+               bytes = fileInputStream.read();
+               System.out.println();
+           }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
