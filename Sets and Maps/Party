@@ -1,13 +1,17 @@
+import java.util.LinkedHashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Party {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
+
         String input = sc.nextLine();
+
+        Set<String> haveCome = new LinkedHashSet<>();
+        Set<String> didNotCome = new LinkedHashSet<>();
         
-        
-        while (!input.equals("END")){
+        while (!input.equals("PARTY")){
             
             input = sc.nextLine();
         }
