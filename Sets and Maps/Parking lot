@@ -25,7 +25,7 @@ public class ParkingLot {
         }
 
         if (cars.isEmpty()){
-            System.out.println("Parking lot is empty");
+            System.out.println("Parking Lot is Empty");
         }else{
             for (String car : cars) {
                 System.out.println(car);
