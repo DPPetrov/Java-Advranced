@@ -8,12 +8,22 @@ public class Party {
 
         String input = sc.nextLine();
 
-        Set<String> haveCome = new LinkedHashSet<>();
-        Set<String> didNotCome = new LinkedHashSet<>();
-        
+        Set<String> vip = new LinkedHashSet<>();
+        Set<String> regular = new LinkedHashSet<>();
+
         while (!input.equals("PARTY")){
-            
+
+            vip.add(input);
+
             input = sc.nextLine();
         }
+
+        while (!input.equals("END")){
+
+            regular.add(input);
+            input = sc.nextLine();
+        }
+
+     
     }
 }
