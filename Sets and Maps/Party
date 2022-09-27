@@ -8,22 +8,42 @@ public class Party {
 
         String input = sc.nextLine();
 
+        boolean isVip = Character.isDigit(input.charAt(0));
+
         Set<String> vip = new LinkedHashSet<>();
         Set<String> regular = new LinkedHashSet<>();
 
         while (!input.equals("PARTY")){
 
-            vip.add(input);
+            if (isVip) {
+                vip.add(input);
+            }else{
+                regular.add(input);
+            }
 
             input = sc.nextLine();
         }
+
 
         while (!input.equals("END")){
 
-            regular.add(input);
+            if (isVip){
+                vip.remove(input);
+            }else{
+                regular.remove(input);
+            }
             input = sc.nextLine();
         }
 
-     
+        System.out.println(vip.size() + regular.size());
+
+        for (String s : vip) {
+            System.out.println(s);
+        }
+
+        for (String r : regular) {
+
+            System.out.println(r);
+        }
     }
 }
