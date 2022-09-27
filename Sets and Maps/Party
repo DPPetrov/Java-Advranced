@@ -10,8 +10,8 @@ public class Party {
 
         boolean isVip = Character.isDigit(input.charAt(0));
 
-        Set<String> vip = new LinkedHashSet<>();
-        Set<String> regular = new TreeSet<>();
+        Set<String> vip = new TreeSet<>();
+        Set<String> regular = new TreeSet<>(); //with LinkedHashSet the order was kept, so the change was needed to match the needed outpu
 
         while (!input.equals("PARTY")){
 
