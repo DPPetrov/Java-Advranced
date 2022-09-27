@@ -11,7 +11,7 @@ public class Party {
         boolean isVip = Character.isDigit(input.charAt(0));
 
         Set<String> vip = new LinkedHashSet<>();
-        Set<String> regular = new LinkedHashSet<>();
+        Set<String> regular = new TreeSet<>();
 
         while (!input.equals("PARTY")){
 
