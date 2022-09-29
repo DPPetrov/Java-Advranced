@@ -6,7 +6,11 @@ public class TextEditor {
         Scanner sc = new Scanner(System.in);
         int input = Integer.parseInt(sc.nextLine());
         String text = "";
+        String originalText = text;
         int count = 0;
+        boolean wasUndone = false;
+        
+        
         ArrayDeque<String> queue = new ArrayDeque<>();
 
         while (input > 0) {
@@ -40,6 +44,11 @@ public class TextEditor {
                     }
                     break;
                 case 4:
+                    if (!wasUndone){
+                        queue.clear();
+                        queue.offer(originalText);
+                        wasUndone = true;
+                    }
                     break;
             }
             input--;
