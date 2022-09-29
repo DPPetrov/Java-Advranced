@@ -1,0 +1,25 @@
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Voina {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        String[] names = sc.nextLine().split("\\s+");
+        int timesToPassPotato = Integer.parseInt(sc.nextLine());
+
+        ArrayDeque<String> players = new ArrayDeque<>(Arrays.asList(names));
+
+        while (players.size() > 1){
+
+            for (int i = 1; i < timesToPassPotato; i++) {
+                players.offer(players.poll());
+                System.out.println("Removed " + players.poll());
+            }
+        }
+
+        System.out.println("Last is " + players.poll());
+    }
+
+}
